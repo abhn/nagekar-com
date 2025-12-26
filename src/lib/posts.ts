@@ -44,6 +44,8 @@ export function getSortedPostsData(): PostMeta[] {
 
       // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents);
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const data = matterResult.data as any;
 
       // Extract year and month from date
