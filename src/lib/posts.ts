@@ -85,6 +85,7 @@ export function getAllPostIds(): Array<{ year: string; month: string; slug: stri
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const matterResult = matter(fileContents);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const data = matterResult.data as any;
       
       const date = new Date(data.date);
@@ -103,6 +104,7 @@ export async function getPostData(slug: string): Promise<PostData> {
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data = matterResult.data as any;
 
   // Use remark to convert markdown into HTML string
